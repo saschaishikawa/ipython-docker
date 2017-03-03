@@ -23,12 +23,9 @@ RUN apt-get update && apt-get -y upgrade && \
 RUN curl -O https://repo.continuum.io/archive/Anaconda2-4.3.0-Linux-x86_64.sh && \
   chmod +x Anaconda2-4.3.0-Linux-x86_64.sh && bash Anaconda2-4.3.0-Linux-x86_64.sh -b
 
-# install rhodium...
-# ..................
-
 ADD ./ /ipython-docker
 
 EXPOSE 8888
 
-# start ipython notebook server
-CMD sh -c "/root/anaconda2/bin/jupyter notebook --ip=*"
+# configure and start ipython notebook server
+CMD ./config.sh && sh -c "/root/anaconda2/bin/jupyter notebook --ip=*"
