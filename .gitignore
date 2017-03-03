@@ -1,3 +1,4 @@
 .DS_Store
 mycert.pem
 mykey.key
+notebook_dir/.ipynb_checkpoints
