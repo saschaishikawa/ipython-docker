@@ -18,5 +18,4 @@ ADD ./ /ipython-docker
 
 EXPOSE 8888
 
-#CMD ["/usr/bin/supervisord", "-n"]
-CMD ["/root/anaconda2/bin/jupyter", "notebook", "--port=8888", "--no-browser"]
+CMD sh -c "/root/anaconda2/bin/jupyter notebook --ip=*" 
