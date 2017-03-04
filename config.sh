@@ -10,9 +10,9 @@ mkdir -p /root/.jupyter/
 cp /ipython-docker/jupyter_notebook_config.py /root/.jupyter/jupyter_notebook_config.py
 
 # install rhodium
-git clone https://github.com/Project-Platypus/PRIM      PRIM     && cd PRIM      && python setup.py develop
-git clone https://github.com/Project-Platypus/Platypus  Platypus && cd Platypus  && python setup.py develop
-git clone https://github.com/Project-Platypus/Rhodium   Rhodium  && cd Rhodium   && python setup.py develop
+git clone https://github.com/Project-Platypus/PRIM PRIM && python PRIM/setup.py develop
+git clone https://github.com/Project-Platypus/Platypus Platypus && python Platypus/setup.py develop
+git clone https://github.com/Project-Platypus/Rhodium Rhodium && python Rhodium/setup.py develop
 
 # install example notebooks
 git clone https://github.com/saschaishikawa/rdm-simple-model notebook_dir/SimpleModel
