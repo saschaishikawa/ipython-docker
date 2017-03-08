@@ -15,6 +15,7 @@ RUN apt-get update && apt-get -y upgrade && \
     make \
     g++ \
     gcc \
+    r-base \
     supervisor \
     python-setuptools \
     graphviz
