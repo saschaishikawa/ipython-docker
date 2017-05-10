@@ -9,10 +9,29 @@ openssl x509 -req -days 365 -in server.csr -signkey mykey.key -out mycert.pem &&
 mkdir -p /root/.jupyter/
 cp /ipython-docker/jupyter_notebook_config.py /root/.jupyter/jupyter_notebook_config.py
 
-# install rhodium
-git clone https://github.com/Project-Platypus/PRIM PRIM && python PRIM/setup.py develop
-git clone https://github.com/Project-Platypus/Platypus Platypus && python Platypus/setup.py develop
-git clone https://github.com/Project-Platypus/Rhodium Rhodium && python Rhodium/setup.py develop
+git clone https://github.com/Project-Platypus/PRIM PRIM && \
+  echo "Installing PRIM..." && \
+  cd PRIM && \
+  echo "In directory: `pwd`" && \
+  python setup.py develop && \
+  cd ..
+
+git clone https://github.com/Project-Platypus/Platypus Platypus && \
+  echo "Installing Platpus..." && \
+  cd Platypus && \
+  echo "In directory: `pwd`" && \
+  python setup.py develop && \
+  cd ..
+
+git clone https://github.com/Project-Platypus/Rhodium Rhodium && \
+  echo "Installing Rhodium..." && \
+  cd Rhodium && \
+  echo "In directory: `pwd`" && \
+  python setup.py develop && \
+  cd ..
+  
+# copy example Lake Model notebook
+cp Rhodium/Rhodium.ipynb notebook_dir/LakeModel.ipynb
 
 # install example notebooks
 git clone https://github.com/saschaishikawa/rdm-simple-model notebook_dir/SimpleModel
